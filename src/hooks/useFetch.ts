@@ -8,7 +8,11 @@ export const useFetch = ({ url }: { url: string }): any => {
 		const promise = fetch(url)
 			.then((res) => res.json())
 			.then((data) => {
+				if (data.status === 404) {
+					throw new Error(data.message)
+				}
 				setData(data)
+				console.log(data)
 			})
 			.catch((error) => {
 				setError(true)

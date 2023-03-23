@@ -19,6 +19,7 @@ export const CountriesMain: FC<Props> = ({ countries }) => {
 					>
 						<div>
 							<img
+								loading='lazy'
 								className={styles.image}
 								src={countries.flags.png || countries.flags.svg}
 								alt={countries.flags.alt}
