@@ -5,7 +5,7 @@ import { Route } from 'wouter'
 import { ThemeContext } from './context/themeContext'
 import { useState } from 'react'
 
-function App(): React.ReactElement {
+function App() {
 	const [theme, setTheme] = useState('')
 	return (
 		<ThemeContext.Provider value={theme}>

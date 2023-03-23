@@ -36,14 +36,6 @@ export interface Countries {
 	postalCode?: PostalCode
 }
 
-export interface CountryCard {
-	name: Name
-	flag: string
-	population: number
-	region: string
-	capital: string
-}
-
 export interface CapitalInfo {
 	latlng?: number[]
 }
@@ -318,4 +310,12 @@ export class Convert {
 	public static countriesToJson(value: Countries[]): string {
 		return JSON.stringify(value)
 	}
+}
+
+export interface CountryCard {
+	name: Name
+	flag: string
+	population: number
+	region: string
+	capital: string
 }
