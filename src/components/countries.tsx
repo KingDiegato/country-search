@@ -4,13 +4,13 @@ import { FC } from 'react'
 import { Link } from 'wouter'
 
 interface Props {
-	countries: Countries[]
+	countries: Countries[] | any
 }
 
 export const CountriesMain: FC<Props> = ({ countries }) => {
 	return (
 		<ul className={styles.list}>
-			{countries.map((countries) => {
+			{countries.map((countries: any) => {
 				return (
 					<li
 						className={styles.card}
