@@ -9,11 +9,11 @@ interface Props {
 
 export const Header: React.FC<Props> = ({ setTheme }): React.ReactElement => {
 	const [action, setAction] = useState(false)
-	const handleDarkTheme = () => {
+	const handleDarkTheme = (): void => {
 		setTheme('dark-mode')
 		setAction(false)
 	}
-	const handleLightTheme = () => {
+	const handleLightTheme = (): void => {
 		setTheme('light-theme')
 		setAction(true)
 	}

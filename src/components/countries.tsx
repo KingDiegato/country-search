@@ -1,13 +1,33 @@
 import { Countries } from './types'
 import styles from './styles/styles.module.css'
-import { FC } from 'react'
+import { CSSProperties, FC } from 'react'
 import { Link } from 'wouter'
+
+import { useImageOnLoad } from '../hooks/useImageOnLoad'
 
 interface Props {
 	countries: Countries[] | any
 }
 
 export const CountriesMain: FC<Props> = ({ countries }) => {
+	const { handleImageOnLoad, css } = useImageOnLoad()
+
+	const style: { [key: string]: CSSProperties } = {
+		wrap: {
+			position: 'relative',
+			width: 400,
+			aspectRatio: '16/9',
+			margin: 'auto'
+		},
+		image: {
+			position: 'absolute',
+			top: 0,
+			left: 0,
+			width: `100%`,
+			height: `100%`
+		}
+	}
+
 	return (
 		<ul className={styles.list}>
 			{countries.map((countries: any) => {
@@ -17,10 +37,20 @@ export const CountriesMain: FC<Props> = ({ countries }) => {
 						key={countries.cca3 + countries.cca2}
 						style={{ listStyle: 'none' }}
 					>
-						<div>
+						<div style={style.wrap}>
 							<img
+								onLoad={handleImageOnLoad}
 								loading='lazy'
 								className={styles.image}
+								style={{ ...style.image, ...(css.thumbnail as CSSProperties) }}
+								src={countries.flags.png || countries.flags.svg}
+								alt={countries.flags.alt}
+							/>
+							<img
+								onLoad={handleImageOnLoad}
+								loading='lazy'
+								className={styles.image}
+								style={{ ...style.image, ...(css.fullSize as CSSProperties) }}
 								src={countries.flags.png || countries.flags.svg}
 								alt={countries.flags.alt}
 							/>
