@@ -2,7 +2,8 @@ import { DefaultParams, RouteComponentProps } from 'wouter'
 import { useFetch } from '../hooks'
 import { Countries } from './types'
 import styles from './styles/styles.module.css'
-import { CardMap, ContentMap } from './pure'
+import { CardMap } from './pure'
+import { ContentMap as TryContentMap } from './pure/_contentMap'
 
 export const Result: React.FC<RouteComponentProps<DefaultParams>> = ({
 	params
@@ -19,7 +20,7 @@ export const Result: React.FC<RouteComponentProps<DefaultParams>> = ({
 					{error && <p>An error has occur</p>}
 					<CardMap data={data} />
 				</ul>
-				<ContentMap data={data} />
+				<TryContentMap data={data} />
 			</section>
 		</>
 	)
