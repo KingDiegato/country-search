@@ -17,7 +17,11 @@ export const Result: React.FC<RouteComponentProps<DefaultParams>> = ({
 			<section className={styles.country__section}>
 				<ul className={styles.list}>
 					{loading && <p>Loading...</p>}
-					{error && <p>An error has occur</p>}
+					{error && (
+						<p>
+							Oops The country you search cannot be found, please check the name
+						</p>
+					)}
 					<CardMap data={data} />
 				</ul>
 				<TryContentMap data={data} />
